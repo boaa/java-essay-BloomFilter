@@ -46,20 +46,20 @@ public class BloomFilterServer {
 	            String str = in.readLine();  
 	            
 	            String result = getData(str);
-	            if(result == null){
+	            if (result == null){
 	            	allCount ++;
 	            	if(BloomFilter.contains(str)){
 	            		errorCount ++;
 	            		TestFileUtil.writeFile("result.txt", str);
 	            	}
-	            }else{
+	            } else{
 	            	out.write(result);
 	            	out.flush();
 	            }
 	            if (str.equals("end")) {  
 	                break;  
 	            }  
-	            if(allCount % 100000 == 0){
+	            if (allCount % 100000 == 0){
 	            	System.out.println(errorCount);  
 	            }
 	        }  

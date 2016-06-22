@@ -13,11 +13,13 @@ import java.util.BitSet;
  * @date 2016年5月11日 下午4:12:38
  * @version V1.0.0
  * @Description:
+ * @see http://www.cnblogs.com/heaad/archive/2011/01/02/1924195.html
+ * @see http://pages.cs.wisc.edu/~cao/papers/summary-cache/node8.html
  */
 public class BloomFilter {
 
-	private static final int DEFAULT_SIZE = 2 << 24;// 布隆过滤器的比特长度
-	private static final int[] seeds = { 3, 5, 7, 11, 13, 31, 37, 61 };// 这里要选取质数，能很好的降低错误率
+	private static final int DEFAULT_SIZE = 1 << 24;// 布隆过滤器的比特长度
+	private static final int[] seeds = { 3, 5, 7, 11, 13, 31, 37, 61 ,67 ,71 };// 这里要选取质数，能很好的降低错误率
 	private static BitSet bits = new BitSet(DEFAULT_SIZE);
 	private static SimpleHash[] func = new SimpleHash[seeds.length];
 	
@@ -73,6 +75,10 @@ public class BloomFilter {
 		} finally{
 			br.close();
 		}
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(DEFAULT_SIZE);
 	}
 
 }

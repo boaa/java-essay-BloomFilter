@@ -20,6 +20,7 @@ public class TestFileUtil {
 	private static final String enter = "\r\n";
 	
 	public static final String path = "test.txt";
+	public static final String path1 = "test1.txt";
 
 	public static void makeFile() throws IOException{
 		makeFile(path);
@@ -29,6 +30,7 @@ public class TestFileUtil {
 		BufferedWriter bw = null;
 		try {
 			bw  = new BufferedWriter(new FileWriter(file));
+			//生成size个不重复的字符串
 			StringBuffer sb = new StringBuffer((UUID.randomUUID().toString().length() +enter.length()) * size);
 			for (int i = 0;i < size ; i++) {
 				sb.append(UUID.randomUUID().toString()).append(enter);
@@ -66,7 +68,8 @@ public class TestFileUtil {
 	
 	public static void main(String[] args) throws IOException {
 		System.out.println("-----------start-----------");
-		makeFile();
+		makeFile(path);
+		makeFile(path1);
 		System.out.println("-----------end-----------");
 	}
 }
